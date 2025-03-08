@@ -1,3 +1,18 @@
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+  --Cyan-color: hsl(179, 62%, 43%);
+  --Cyan-Dark-color: hsl(179, 62%, 40%);
+  --Bright-Yellow-color: hsl(71, 73%, 54%);
+  /* ### Neutral */
+  --Light-Gray-color: hsl(204, 43%, 93%);
+  --Grayish-Blue-color: hsl(218, 22%, 67%);
+  
+  font-family: "Karla", sans-serif;
+  color: var(--Cyan-colo);
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -8,35 +23,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
+  background-color: var(--Light-Gray-color);
 }
 
 .container {
-  background-color: red;
+  background-color: white;
   width: 350px;
 }
 
 .main {
-  background-color: blue;
+  /* background-color: blue; */
   padding: 20px;
-  /* height: 250px; */
+  margin-bottom: 10px;
 }
 .main__titulo {
   margin-bottom: 10px;
+  color: var(--Cyan-colo);
 }
 .main__p--yellow {
-  color: yellow;
+  color: var(--Bright-Yellow-color);
   padding-right: 50px;
   margin: 10px 0px;
+  font-weight: 800;
 }
 .main__p {
+  line-height: 23px;
 }
 
 .subscription {
-  background-color: green;
+  background-color: var(--Cyan-Dark-color);
   flex-direction: column;
   padding: 20px;
-  color: beige;
+  color: white;
 }
 .subscription__titulo {
   margin-bottom: 10px;
@@ -48,12 +67,14 @@ body {
 }
 .subscription__p--slin {
   display: inline-block;
+  font-weight: 100;
 }
 .subscription__p {
   margin-bottom: 15px;
 }
 .subscription__singUp {
-  background-color: aquamarine;
+  background: var(--Bright-Yellow-color);
+  color: white;
   border: none;
   width: 100%;
   height: 40px;
@@ -62,7 +83,7 @@ body {
 }
 
 .why {
-  background-color: yellowgreen;
+  background-color: var(--Cyan-color);
   padding: 20px;
   color: beige;
   /* height: 250px; */
@@ -72,4 +93,33 @@ body {
 }
 .why__p {
   padding-right: 100px;
+}
+
+@media (width >= 450px) {
+  body {
+    /* background-color: rebeccapurple; */
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: 1fr 1fr;
+    grid-template-areas:
+      "main main"
+      "subs why";
+    width: 600px;
+    height: auto;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .subscription {
+    grid-area: subs;
+  }
+
+  .why {
+    grid-area: why;
+  }
 }
